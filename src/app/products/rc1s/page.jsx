@@ -1,5 +1,5 @@
 "use client";
-import ProductPagePremium from "../../components/ProductPagePremium";
+import ProductPagePremium from "@/components/ProductPagePremium";
 
 const iconPath = (d) => (
   <svg width="22" height="22" fill="none" viewBox="0 0 24 24">

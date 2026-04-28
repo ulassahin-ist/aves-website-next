@@ -18,22 +18,6 @@
   }
 }
 
-body.products-page header {
-  background: transparent;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  position: fixed;
-  width: 100%;
-  top: 48px;
-}
-body.products-page header.scrolled {
-  top: 0;
-  background-image:
-    linear-gradient(#00000052, #fff0),
-    linear-gradient(90deg, #9549a5, #6847ac 53%, #496ab8),
-    linear-gradient(#0000, #0000);
-}
 .pr-anim {
   opacity: 0;
   transform: translateY(18px);
@@ -58,6 +42,37 @@ body.products-page header.scrolled {
   transition-delay: 0.19s;
 }
 
+body.products-page header {
+  background: transparent;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 48px;
+}
+body.products-page header.scrolled {
+  top: 0;
+  background-image:
+    linear-gradient(#00000052, #fff0),
+    linear-gradient(90deg, #9549a5, #6847ac 53%, #496ab8),
+    linear-gradient(#0000, #0000);
+}
+
+body.products-page header.scrolled .mobile_menu {
+  background-image: linear-gradient(90deg, #9549a5, #6847ac 53%, #496ab8);
+}
+body.products-page .mobile_menu {
+  background-image:
+    linear-gradient(#00000052, #fff0),
+    linear-gradient(90deg, #9549a5, #6847ac 53%, #496ab8),
+    linear-gradient(#0000, #0000);
+}
+
+body.products-page .mobile_menu ul li.has_mobile_submenu > ul {
+  background: rgba(99, 102, 241, 0.12);
+  border-left: 8px solid transparent;
+}
 /* ── hero ── */
 .pr-hero {
   background: var(--navy);
@@ -417,7 +432,7 @@ body.products-page header.scrolled {
 
 @media (max-width: 900px) {
   .pr-hero {
-    padding: 5rem 2rem 4rem;
+    padding: calc(5rem + var(--header-height)) 2rem 4rem;
   }
   .pr-hero-inner {
     grid-template-columns: 1fr;
@@ -440,6 +455,21 @@ body.products-page header.scrolled {
   }
   .pr-grid .product-card {
     grid-template-columns: 140px 1fr;
+  }
+  .pr-cat-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .pr-cat-title {
+    text-decoration: inherit;
+    font-style: inherit;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(254deg, #4d5ff8, #ee6b60);
+    -webkit-background-clip: text;
+    background-clip: text;
+    display: inline-block;
+    overflow: visible;
+    padding: 2px;
   }
   .pr-cta {
     padding: 5rem 2rem;

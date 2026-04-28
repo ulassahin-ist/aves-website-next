@@ -1,11 +1,10 @@
-import "../css/global.css";
-import "../css/information.css";
-import "../css/contact.css";
-import "../css/index.css";
-import "../css/software.css";
-import Layout from "../components/Layout";
-import { Inter } from "next/font/google";
-
+import "@/css/global.css";
+import "@/css/information.css";
+import "@/css/contact.css";
+import "@/css/index.css";
+import "@/css/software.css";
+import Layout from "@/components/Layout";
+import "@fontsource/inter";
 export const metadata = {
   metadataBase: new URL("https://www.aveselektronik.com"),
   title: {
@@ -28,6 +27,10 @@ export const metadata = {
     "yerli üretim",
     "AVES Elektronik",
   ],
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   authors: [{ name: "AVES Elektronik" }],
   creator: "AVES Elektronik",
   publisher: "AVES Elektronik",
@@ -72,16 +75,13 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
+  themeColor: "#1e1e37",
 };
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-});
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="tr" className={inter.className}>
+    <html lang="tr">
       <head>
-        <link rel="icon" href="/images/aves-logo.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

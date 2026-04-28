@@ -34,6 +34,9 @@ body.contact-page header.scrolled {
   top: 0;
   background-image: linear-gradient(270deg, #5366cc, #413d72);
 }
+body.contact-page .mobile_menu {
+  background-image: linear-gradient(270deg, #5366cc, #413d72);
+}
 .ct {
   opacity: 0;
   transform: translateY(16px);
@@ -148,6 +151,9 @@ body.contact-page header.scrolled {
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(90deg, #d3467b, #ea6470 53%, #fe9a50);
+  background-clip: text;
 }
 .ct-channel-value {
   font-size: 1.9rem;

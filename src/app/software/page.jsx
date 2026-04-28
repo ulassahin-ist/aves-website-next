@@ -1,9 +1,9 @@
 "use client";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import PageHero from "../components/PageHero";
-import "../css/information.css";
-import "../css/software.css";
+import PageHero from "@/components/PageHero";
+import "@/css/information.css";
+import "@/css/software.css";
 
 const SERVICES = [
   {

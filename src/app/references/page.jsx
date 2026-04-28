@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import "../css/information.css";
-import "../css/references.css";
+import "@/css/information.css";
+import "@/css/references.css";
 const SLIDES = [
   "/images/r_btk.jpg",
   "/images/r_bogazici.jpg",
@@ -137,7 +137,7 @@ const SECTOR_COLORS = {
   },
 };
 const InfinityIcon = (
-  <svg width="60" height="60" viewBox="-4 -4 72 40" fill="none">
+  <svg width="48" height="20" viewBox="13 3 54 26" fill="none">
     <path
       d="M16 16C16 10.477 20.477 6 26 6C31.523 6 36 10.477 40 16C44 21.523 48.477 26 54 26C59.523 26 64 21.523 64 16C64 10.477 59.523 6 54 6C48.477 6 44 10.477 40 16C36 21.523 31.523 26 26 26C20.477 26 16 21.523 16 16Z"
       stroke="currentColor"
@@ -205,7 +205,7 @@ export default function References() {
               kullanılıyor.
             </p>
             <div className="ref-hero-pills">
-              {["Devlet Kurumları", "Üniversiteler", "Eğitim", "Sanayi"].map(
+              {["Devlet Kurumları", "Üniversiteler", "Siteler", "Sanayi"].map(
                 (p) => (
                   <span className="ref-hero-pill" key={p}>
                     {p}
@@ -247,7 +247,7 @@ export default function References() {
             { num: InfinityIcon, text: "Memnun Müşteri" },
           ].map((s, i) => (
             <>
-              <div className="ref-stat-item" key={s.num}>
+              <div className="ref-stat-item" key={i}>
                 <div className="ref-stat-num">{s.num}</div>
                 <div className="ref-stat-text">{s.text}</div>
               </div>

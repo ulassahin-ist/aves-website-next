@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import ProductStickyBar from "./ProductStickyBar";
-import "../css/productPages.css";
+import "@/css/productPages.css";
 /**
  * ProductPagePremium
  * RC264-style full hero layout for flagship products (RC210, RC264, RCP8)

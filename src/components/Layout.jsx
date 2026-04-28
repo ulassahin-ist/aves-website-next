@@ -50,7 +50,8 @@ export default function Layout({ children }) {
     <>
       <div className="topbar">
         <span className="topbar_text">
-          Yerli donanım, yerli yazılım — Tüm cihazlar için SDK desteği
+          Yerli donanım, yerli yazılım{" "}
+          <span>— Tüm cihazlar için SDK desteği</span>
         </span>
         <a className="topbar_cta" onClick={() => go("/download")}>
           İNDİRME SAYFASI
@@ -67,7 +68,8 @@ export default function Layout({ children }) {
             />
             <div className="companyName">
               <MessageCircle size={18} color="#fffbc894" />
-              &nbsp; Bize Yazın
+              &nbsp;&nbsp;{" "}
+              <a href="mailto:info@aveselektronik.com"> Bize Yazın </a>
             </div>
           </div>
 
@@ -198,6 +200,9 @@ export default function Layout({ children }) {
                     <a onClick={() => go("/products/c4128")}>
                       Bekçi Tur Kontrol Sistemi
                     </a>
+                  </li>
+                  <li>
+                    <a onClick={() => go("/products")}>Tümünü Gör</a>
                   </li>
                 </ul>
               </li>

@@ -1,5 +1,5 @@
 "use client";
-import ProductPagePremium from "../../components/ProductPagePremium";
+import ProductPagePremium from "@/components/ProductPagePremium";
 
 const CHIPS = [
   { num: "262K", label: "Kart kapasitesi" },

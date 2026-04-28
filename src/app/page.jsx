@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import "../css/index.css";
+import "@/css/index.css";
 
 /* ─── animation hook ─────────────────────────────────────────────────────── */
 function useScrollAnimations() {
@@ -783,7 +783,10 @@ export default function Home() {
 
       {/* ── CLOSING HERO ── */}
       <section className="closing-hero">
-        <div className="closing-hero-bg" />
+        <div
+          className="closing-hero-bg"
+          style={{ backgroundImage: `url('/images/closing-hero.png')` }}
+        />
         <div className="closing-hero-overlay" />
         <div className="closing-hero-content ha">
           <h1>Projenizi birlikte planlayalım</h1>

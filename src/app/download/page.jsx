@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import "../css/download.css";
+import "@/css/download.css";
 
 const DOWNLOAD_GROUPS = [
   {

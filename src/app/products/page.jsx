@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import "../css/products.css";
+import "@/css/products.css";
 const CATEGORIES = [
   {
     id: "poe",

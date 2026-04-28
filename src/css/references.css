@@ -107,7 +107,7 @@ body.references-page .mobile_menu ul li.has_mobile_submenu > ul {
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  aspect-ratio: 16/9;
+  aspect-ratio: 2/1;
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5);
 }
 .ref-slide {
@@ -518,7 +518,7 @@ body.references-page .mobile_menu ul li.has_mobile_submenu > ul {
   transform: translateY(0);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .ref-hero-inner {
     grid-template-columns: 1fr;
     gap: 4rem;
@@ -529,21 +529,22 @@ body.references-page .mobile_menu ul li.has_mobile_submenu > ul {
   .ref-hero h1 {
     font-size: 3.4rem;
   }
-  .ref-stats-inner {
-    flex-direction: column;
-    gap: 2rem;
+  .ref-stats {
+    padding: 0;
   }
   .ref-stats-inner {
-    /* align-items: space-between; */
-    position: relative;
+    gap: 0;
   }
-  .ref-stats-item {
+  .ref-stat-num {
+    font-size: 24px;
+  }
+  .ref-stat-item {
     justify-content: space-between;
     display: flex;
+    padding: 20px;
+    height: auto;
     width: 100%;
-    flex-direction: row;
-    border: 1px solid red;
-    background-color: red;
+    outline: 0.5px solid rgba(255, 255, 255, 0.066);
   }
   .ref-stat-divider {
     display: none;

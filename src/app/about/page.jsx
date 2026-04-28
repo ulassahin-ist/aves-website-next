@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import "../css/information.css";
-import "../css/about.css";
+import "@/css/information.css";
+import "@/css/about.css";
 const MILESTONES = [
   {
     year: "1996",
@@ -147,7 +147,7 @@ export default function About() {
           <div className="about-hero-left">
             <span className="about-eyebrow">Firma</span>
             <h1>
-              30 yıllık
+              30 yıldır
               <br />
               <span>sektörde uzmanlık</span>
             </h1>
