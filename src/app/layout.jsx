@@ -7,8 +7,71 @@ import "../css/font-awesome.css";
 import Layout from "../components/Layout";
 
 export const metadata = {
-  title: "AVES Elektronik | Geçiş ve Kredi Kontrol Üreticisi",
-  description: "1996'dan beri yerli geçiş ve kredi sistemi çözümleri.",
+  metadataBase: new URL("https://www.aveselektronik.com"),
+  title: {
+    default: "AVES Elektronik | Geçiş ve Kredi Kontrol Üreticisi",
+    template: "%s | AVES Elektronik",
+  },
+  description:
+    "1996'dan beri yerli geçiş kontrol, kredi kontrol ve yazılım geliştirme çözümleri. POE kart okuyucular, kontrol panelleri, Android terminaller ve SDK desteği.",
+  keywords: [
+    "geçiş kontrol",
+    "kart okuyucu",
+    "RFID",
+    "mifare",
+    "POE kart okuyucu",
+    "RC210",
+    "RC264",
+    "RCP8",
+    "bekçi tur kontrol",
+    "kartlı geçiş sistemi",
+    "yerli üretim",
+    "AVES Elektronik",
+  ],
+  authors: [{ name: "AVES Elektronik" }],
+  creator: "AVES Elektronik",
+  publisher: "AVES Elektronik",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "tr_TR",
+    url: "https://www.aveselektronik.com",
+    siteName: "AVES Elektronik",
+    title: "AVES Elektronik | Geçiş ve Kredi Kontrol Üreticisi",
+    description:
+      "1996'dan beri yerli geçiş kontrol, kredi kontrol ve yazılım geliştirme çözümleri.",
+    images: [
+      {
+        url: "/images/aves-logo-square.jpg",
+        width: 1200,
+        height: 630,
+        alt: "AVES Elektronik",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AVES Elektronik | Geçiş ve Kredi Kontrol Üreticisi",
+    description:
+      "1996'dan beri yerli geçiş kontrol, kredi kontrol ve yazılım geliştirme çözümleri.",
+    images: ["/images/aves-logo-square.jpg"],
+  },
+  alternates: {
+    canonical: "https://www.aveselektronik.com",
+  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }) {
