@@ -118,7 +118,6 @@ export default function Products() {
   const [activeCategory, setActiveCategory] = useState("all");
 
   useEffect(() => {
-    document.title = "Ürünler | AVES Elektronik";
     document.body.classList.add("products-page");
     return () => document.body.classList.remove("products-page");
   }, []);

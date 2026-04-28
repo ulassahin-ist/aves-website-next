@@ -153,7 +153,6 @@ export default function References() {
   const timerRef = useRef(null);
 
   useEffect(() => {
-    document.title = "Referanslar | AVES Elektronik";
     document.body.classList.add("references-page");
     return () => document.body.classList.remove("references-page");
   }, []);

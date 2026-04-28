@@ -122,10 +122,6 @@ export default function About() {
   const timelineRef = useRef(null);
 
   useEffect(() => {
-    document.title = "Hakkımızda | AVES Elektronik";
-  }, []);
-
-  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

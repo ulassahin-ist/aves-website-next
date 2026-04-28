@@ -1,18 +1,6 @@
 "use client";
 import ProductPagePremium from "../../components/ProductPagePremium";
 
-export const metadata = {
-  title: "RC206 USB Kart Okuyucu",
-  description:
-    "OLED ekranlı, USB 2.0 bağlantılı, offline çalışan kart okuyucu. Oyun makineleri, müşteri sadakat ve kredi sistemleri için SDK desteği.",
-  openGraph: {
-    title: "RC206 USB Kart Okuyucu | AVES Elektronik",
-    description:
-      "OLED ekranlı, USB 2.0 bağlantılı, offline çalışan kart okuyucu. SDK desteği ile her sisteme entegre.",
-    images: ["/images/usb-kart-okuyucu_.png"],
-  },
-};
-
 const iconPath = (d) => (
   <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
     <path

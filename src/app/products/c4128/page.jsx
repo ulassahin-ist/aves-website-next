@@ -1,18 +1,6 @@
 "use client";
 import ProductPagePremium from "../../components/ProductPagePremium";
 
-export const metadata = {
-  title: "C4128 Bekçi Tur Kontrol Sistemi",
-  description:
-    "Li-Ion pilli, IP67 korumalı, 8.190 kayıt kapasiteli Proximity bekçi tur kontrol cihazı. 45 günlük kullanım süresi, USB 2.0 bağlantı.",
-  openGraph: {
-    title: "C4128 Bekçi Tur Kontrol Sistemi | AVES Elektronik",
-    description:
-      "Li-Ion pilli, IP67 korumalı, 8.190 kayıt kapasiteli Proximity bekçi tur kontrol cihazı.",
-    images: ["/images/bekci-tur-okuyucu.png"],
-  },
-};
-
 const iconPath = (d) => (
   <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
     <path

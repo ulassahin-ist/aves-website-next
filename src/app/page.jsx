@@ -322,11 +322,6 @@ export default function Home() {
   useScrollAnimations();
 
   useEffect(() => {
-    document.title =
-      "AVES Elektronik | Geçiş ve Kredi Kontrol Üreticisi – 30 Yıllık Tecrübe";
-  }, []);
-
-  useEffect(() => {
     const el = sliderRef.current;
     if (!el) return;
     let requestRef;

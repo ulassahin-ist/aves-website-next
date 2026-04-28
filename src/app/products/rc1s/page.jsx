@@ -1,18 +1,6 @@
 "use client";
 import ProductPagePremium from "../../components/ProductPagePremium";
 
-export const metadata = {
-  title: "RC1s Standalone Kart Okuyucu",
-  description:
-    "Yazılım gerektirmeyen, IP67 korumalı, 5.840 kart kapasiteli bağımsız kart okuyucu. Anti-Passback, Mifare Classic 13.56 MHz.",
-  openGraph: {
-    title: "RC1s Standalone Kart Okuyucu | AVES Elektronik",
-    description:
-      "Yazılım gerektirmeyen, IP67 korumalı, 5.840 kart kapasiteli bağımsız kart okuyucu.",
-    images: ["/images/panel-tipi-kart-okuyucu.png"],
-  },
-};
-
 const iconPath = (d) => (
   <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
     <path

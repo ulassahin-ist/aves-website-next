@@ -1139,7 +1139,7 @@
   inset: 0;
   background: center/cover no-repeat;
   z-index: 1;
-  background-image: url("images/closing-hero.png");
+  background-image: url("/images/closing-hero.png");
   transform: scale(1.05);
 }
 

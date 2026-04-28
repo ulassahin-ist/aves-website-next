@@ -58,10 +58,6 @@ export default function ProductPagePremium({
 
   const heroRef = useRef(null);
 
-  useEffect(() => {
-    if (docTitle) document.title = docTitle;
-  }, [docTitle]);
-
   return (
     <>
       {/* ── HERO ── */}

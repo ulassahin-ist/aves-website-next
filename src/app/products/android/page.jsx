@@ -1,18 +1,6 @@
 "use client";
 import ProductPagePremium from "../../components/ProductPagePremium";
 
-export const metadata = {
-  title: "Android El Terminali",
-  description:
-    "NFC özellikli Android platformu üzerinde geçiş kontrol ve harcama yazılımları. Cep telefonu veya endüstriyel el terminali ile RC sistemi entegrasyonu.",
-  openGraph: {
-    title: "Android El Terminali | AVES Elektronik",
-    description:
-      "NFC özellikli Android platformu üzerinde geçiş kontrol ve harcama yazılımları.",
-    images: ["/images/android-kart-okuyucu_.png"],
-  },
-};
-
 const iconPath = (d) => (
   <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
     <path

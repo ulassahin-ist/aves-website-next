@@ -3,8 +3,8 @@ import "../css/information.css";
 import "../css/contact.css";
 import "../css/index.css";
 import "../css/software.css";
-import "../css/font-awesome.css";
 import Layout from "../components/Layout";
+import { Inter } from "next/font/google";
 
 export const metadata = {
   metadataBase: new URL("https://www.aveselektronik.com"),
@@ -73,10 +73,13 @@ export const viewport = {
   width: "device-width",
   initialScale: 1,
 };
-
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
 export default function RootLayout({ children }) {
   return (
-    <html lang="tr">
+    <html lang="tr" className={inter.className}>
       <head>
         <link rel="icon" href="/images/aves-logo.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

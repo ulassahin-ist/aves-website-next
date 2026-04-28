@@ -7,7 +7,6 @@ export default function Contact() {
   const [copied, setCopied] = useState(null);
 
   useEffect(() => {
-    document.title = "İletişim | AVES Elektronik";
     document.body.classList.add("contact-page");
     return () => document.body.classList.remove("contact-page");
   }, []);

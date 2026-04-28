@@ -236,9 +236,6 @@ export default function Software() {
   const router = useRouter();
 
   useEffect(() => {
-    document.title = "Yazılım Hizmetleri | AVES Elektronik";
-  }, []);
-  useEffect(() => {
     const io = new IntersectionObserver(
       (entries) =>
         entries.forEach(

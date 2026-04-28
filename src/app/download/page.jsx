@@ -339,7 +339,6 @@ export default function Download() {
   const [activeGroup, setActiveGroup] = useState("software");
 
   useEffect(() => {
-    document.title = "Download | AVES Elektronik";
     document.body.classList.add("download-page");
     return () => document.body.classList.remove("download-page");
   }, []);

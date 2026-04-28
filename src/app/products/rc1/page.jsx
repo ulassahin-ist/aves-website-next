@@ -1,18 +1,6 @@
 "use client";
 import ProductPagePremium from "../../components/ProductPagePremium";
 
-export const metadata = {
-  title: "RC1 Panel Tipi Kart Okuyucu",
-  description:
-    "RCP8 kontrol paneli ile çalışan RS485 bağlantılı okuyucu. IP67 korumalı, Anti-Passback destekli, Mifare şifreli kart altyapısı.",
-  openGraph: {
-    title: "RC1 Panel Tipi Kart Okuyucu | AVES Elektronik",
-    description:
-      "RCP8 kontrol paneli ile çalışan RS485 bağlantılı okuyucu. IP67 korumalı, Anti-Passback destekli.",
-    images: ["/images/panel-tipi-kart-okuyucu.png"],
-  },
-};
-
 const iconPath = (d) => (
   <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
     <path
