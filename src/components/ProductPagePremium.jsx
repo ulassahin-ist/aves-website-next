@@ -74,7 +74,7 @@ export default function ProductPagePremium({
       />
       <section className="pp-hero">
         <div className="pp-hero-left">
-          <button className="pp-back-btn" onClick={() => router.push(-1)}>
+          <button className="pp-back-btn" onClick={() => window.history.back()}>
             ← Geri
           </button>
 

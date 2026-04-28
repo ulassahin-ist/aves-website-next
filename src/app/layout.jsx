@@ -1,4 +1,3 @@
-"use client";
 import "../css/global.css";
 import "../css/information.css";
 import "../css/contact.css";

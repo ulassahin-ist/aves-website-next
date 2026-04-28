@@ -75,7 +75,10 @@ export default function ProductPageStandard({
       <section className="ps-hero">
         <div className="ps-hero-inner">
           <div className="ps-hero-left">
-            <button className="ps-back-btn" onClick={() => router.push(-1)}>
+            <button
+              className="ps-back-btn"
+              onClick={() => window.history.back()}
+            >
               ← Geri
             </button>
             <span
