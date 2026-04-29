@@ -367,7 +367,7 @@ export default function References() {
               </button>
               <button
                 className="ref-btn-ghost"
-                onClick={() => router.push("/products/rc210")}
+                onClick={() => router.push("/products")}
               >
                 Ürünleri İnceleyin →
               </button>

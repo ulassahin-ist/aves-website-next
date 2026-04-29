@@ -38,8 +38,8 @@ export default function Contact() {
           <span className="ct-hero-label">İletişim</span>
           <h1>Bize ulaşın</h1>
           <p className="ct-hero-desc">
-            Teknik destek, teklif veya genel sorularınız için 1996'dan beri aynı
-            adresdeyiz.
+            Teknik destek, teklif veya genel sorularınız için 1996'dan beri
+            yanındayız.
           </p>
         </div>
       </section>

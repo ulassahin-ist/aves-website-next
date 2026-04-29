@@ -64,19 +64,19 @@ html {
   max-width: 100%;
   margin: 0;
   padding: 0;
+  scrollbar-gutter: stable;
 }
 
 body {
   font-family: "DM Sans", system-ui, sans-serif;
   font-size: 1.6rem;
-  background: #fff;
+  background: var(--navy);
   color: var(--text);
-  overflow-x: hidden;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   margin: 0;
   padding: 0;
   user-select: none;
@@ -392,6 +392,7 @@ header.scrolled {
   position: fixed;
   bottom: -100%;
   left: 0;
+
   height: calc(100dvh - var(--header-height) - var(--topbar-height));
   width: 100%;
   background: var(--navy);

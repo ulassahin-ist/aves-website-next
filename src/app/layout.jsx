@@ -1,8 +1,15 @@
+// src/app/layout.jsx
 import "@/css/global.css";
 import "@/css/information.css";
 import "@/css/contact.css";
 import "@/css/index.css";
 import "@/css/software.css";
+import "@/css/about.css";
+import "@/css/references.css";
+import "@/css/products.css";
+import "@/css/productPages.css";
+import "@/css/download.css";
+import "@fontsource/inter";
 import Layout from "@/components/Layout";
 import "@fontsource/inter";
 export const metadata = {

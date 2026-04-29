@@ -694,11 +694,16 @@
 /* ── Product Sticky Bar ── */
 .psb-bar {
   position: fixed;
-  top: 64px; /* sits just below the main sticky header */
+  will-change: transform, opacity;
+  /* Ensure it is exactly below the header without a gap */
+  top: 64px;
   left: 0;
   right: 0;
   z-index: 998;
   height: 52px;
+  max-width: 100%;
+  overflow: hidden;
+  width: 100%;
   background-image: linear-gradient(270deg, #5366cc, #413d72);
   display: flex;
   align-items: center;
@@ -824,9 +829,6 @@
 
 /* hide title text on small screens to avoid overflow */
 @media (max-width: 600px) {
-  .psb-bar {
-    padding: 0 2rem;
-  }
   .psb-title {
     display: none;
   }

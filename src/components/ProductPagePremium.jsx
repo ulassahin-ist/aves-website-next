@@ -203,7 +203,7 @@ export default function ProductPagePremium({
       )}
 
       {/* ── SPECS ── */}
-      {specs.length > 0 && (
+      {/* {specs.length > 0 && (
         <section className="pp-specs">
           <div className="pp-specs-inner">
             <div className="pp-specs-left pp pp-l">
@@ -232,7 +232,7 @@ export default function ProductPagePremium({
             </div>
           </div>
         </section>
-      )}
+      )} */}
 
       {/* ── CTA ── */}
       <section className="pp-cta">
