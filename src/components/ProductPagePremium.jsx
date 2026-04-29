@@ -1,166 +1,144 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import ProductStickyBar from "./ProductStickyBar";
-import "@/css/productPages.css";
-/**
- * ProductPagePremium
- * RC264-style full hero layout for flagship products (RC210, RC264, RCP8)
- *
- * Props:
- *   model        string   e.g. "RC264"
- *   eyebrow      string   e.g. "POE · Mifare"
- *   title        string   e.g. "Akıllı POE Kart Okuyucu"
- *   desc         string   hero paragraph
- *   image        string   image src
- *   imageAlt     string
- *   pdfHref      string   datasheet PDF path
- *   accentColor  string   CSS color for pill/badge accent  (default #6366f1)
- *   chips        Array<{ num, label }>   up to 3 floating stat chips
- *   stats        Array<{ num, label }>   stats bar (4 items ideal)
- *   features     Array<{ icon: JSX, badge, title, desc }>
- *   specs        Array<[key, value]>
- *   useCases     Array<{ title, desc }>
- *   docTitle     string   browser tab title
- */
-function useScrollAnim() {
+
+export default function ProductPagePremium({
+  model = "",
+  eyebrow = "",
+  title = "",
+  desc = "",
+  image = "",
+  imageAlt = "",
+  pdfHref = null,
+  chips = [],
+  stats = [],
+  features = [],
+  specs = [],
+  useCases = [],
+}) {
+  const router = useRouter();
+  const heroRef = useRef(null);
+  const [barVisible, setBarVisible] = useState(false);
+
+  // Scroll-reveal
   useEffect(() => {
     const io = new IntersectionObserver(
       (entries) =>
         entries.forEach(
           (e) => e.isIntersecting && e.target.classList.add("pp-in"),
         ),
-      { threshold: 0.08 },
+      { threshold: 0.07 },
     );
     document.querySelectorAll(".pp").forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, []);
-}
 
-export default function ProductPagePremium({
-  model = "RC264",
-  eyebrow = "POE · Mifare",
-  title = "Akıllı POE Kart Okuyucu",
-  desc = "",
-  image = "",
-  imageAlt = "",
-  pdfHref = "#",
-  accentColor = "#6366f1",
-  chips = [],
-  stats = [],
-  features = [],
-  specs = [],
-  useCases = [],
-  docTitle = "",
-}) {
-  const router = useRouter();
-  useScrollAnim();
-
-  const heroRef = useRef(null);
+  // Sticky bar — appears when hero h1 leaves viewport
+  useEffect(() => {
+    const el = heroRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setBarVisible(!entry.isIntersecting),
+      { threshold: 0 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   return (
     <>
-      {/* ── HERO ── */}
-      <ProductStickyBar
-        model={model}
-        title={title}
-        image={image}
-        pdfHref={pdfHref}
-        heroRef={heroRef}
-      />
-      <section className="pp-hero">
-        <div className="pp-hero-left">
-          <button className="pp-back-btn" onClick={() => window.history.back()}>
-            ← Geri
-          </button>
-
-          <div className="pp-badge">
-            <div className="pp-badge-dot" />
-            {eyebrow}
-          </div>
-
-          <h1 style={{ animation: "ppFadeUp .6s ease both" }} ref={heroRef}>
-            {model}
-          </h1>
-          <div
-            className="pp-hero-sub"
-            style={{ animation: "ppFadeUp .6s .12s ease both" }}
-          >
-            {title}
-          </div>
-          <p
-            className="pp-hero-desc"
-            style={{ animation: "ppFadeUp .6s .24s ease both" }}
-          >
-            {desc}
-          </p>
-          <div
-            className="pp-hero-actions"
-            style={{ animation: "ppFadeUp .6s .38s ease both" }}
-          >
-            <a
-              className="pp-btn-primary"
-              href={pdfHref}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
-                <path
-                  d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              Datasheet İndir
-            </a>
+      {/* ── STICKY BAR ──
+          Lives at the top of the render tree so it's a sibling of the page,
+          not inside any positioned container. Uses position:sticky on its
+          own wrapper so it never fights the global header. */}
+      <div className={`pp-bar${barVisible ? " pp-bar--on" : ""}`}>
+        <div className="pp-bar-inner">
+          <img className="pp-bar-img" src={image} alt={model} />
+          <span className="pp-bar-model">{model}</span>
+          <div className="pp-bar-sep" />
+          <span className="pp-bar-title">{title}</span>
+          <div className="pp-bar-actions">
             <button
-              className="pp-btn-ghost"
+              className="pp-bar-ghost"
               onClick={() => router.push("/contact")}
             >
               Teklif Al →
             </button>
+            {pdfHref && (
+              <a
+                className="pp-bar-primary"
+                href={pdfHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Datasheet
+              </a>
+            )}
           </div>
         </div>
+      </div>
 
-        <div
-          className="pp-hero-right"
-          style={{ animation: "ppFadeUp .7s .1s ease both" }}
-        >
-          <div className="pp-img-frame">
-            <div className="pp-img-ring pp-img-ring-1" />
-            <div className="pp-img-ring pp-img-ring-2" />
-            <img src={image} alt={imageAlt || model} />
-            {/* {chips[0] && (
-              <div className="pp-stat-chip pp-chip-1">
-                <div className="pp-chip-num">{chips[0].num}</div>
-                <div className="pp-chip-label">{chips[0].label}</div>
-              </div>
-            )}
-            {chips[1] && (
-              <div className="pp-stat-chip pp-chip-2">
-                <div className="pp-chip-num">{chips[1].num}</div>
-                <div className="pp-chip-label">{chips[1].label}</div>
-              </div>
-            )}
-            {chips[2] && (
-              <div className="pp-stat-chip pp-chip-3">
-                <div className="pp-chip-num">{chips[2].num}</div>
-                <div className="pp-chip-label">{chips[2].label}</div>
-              </div>
-            )} */}
+      {/* ── HERO ── */}
+      <section className="pp-hero">
+        <div className="pp-hero-inner">
+          <div className="pp-hero-left">
+            <button className="pp-back" onClick={() => window.history.back()}>
+              ← Geri
+            </button>
+            <div className="pp-eyebrow">
+              <span className="pp-eyebrow-dot" />
+              {eyebrow}
+            </div>
+            {/* ref sentinel — bar shows when this scrolls out */}
+            <h1 ref={heroRef}>{model}</h1>
+            <p className="pp-hero-sub">{title}</p>
+            <p className="pp-hero-desc">{desc}</p>
+            <div className="pp-hero-actions">
+              {pdfHref && (
+                <a
+                  className="pp-btn-primary"
+                  href={pdfHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg width="15" height="15" fill="none" viewBox="0 0 24 24">
+                    <path
+                      d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  Datasheet İndir
+                </a>
+              )}
+              <button
+                className="pp-btn-ghost"
+                onClick={() => router.push("/contact")}
+              >
+                Teklif Al →
+              </button>
+            </div>
+          </div>
+
+          <div className="pp-hero-right">
+            <div className="pp-img-wrap">
+              <div className="pp-img-ring pp-ring-1" />
+              <div className="pp-img-ring pp-ring-2" />
+              <img src={image} alt={imageAlt || model} />
+            </div>
           </div>
         </div>
-        <div className="ps-hero-rule" />
+        <div className="pp-hero-rule" />
       </section>
 
       {/* ── STATS BAR ── */}
       {stats.length > 0 && (
-        <div className="pp-stats-bar">
-          <div className="pp-stats-bar-inner">
+        <div className="pp-stats">
+          <div className="pp-stats-inner">
             {stats.map((s, i) => (
-              <div className={`pp-stat-item pp pp ppd${i + 1}`} key={s.label}>
+              <div className={`pp-stat pp pp-d${i + 1}`} key={s.label}>
                 <div className="pp-stat-num">{s.num}</div>
                 <div className="pp-stat-label">{s.label}</div>
               </div>
@@ -173,12 +151,10 @@ export default function ProductPagePremium({
       {features.length > 0 && (
         <section className="pp-features">
           <div className="pp-features-inner">
-            <div className="pp-features-header">
-              <div className="pp pp-l">
-                <span className="pp-section-eyebrow">Özellikler</span>
-                <h2>Neden {model}?</h2>
-              </div>
-              <p className="pp pp-r ppd2">
+            <div className="pp-section-head pp pp-l">
+              <span className="pp-eyebrow-text">Özellikler</span>
+              <h2>Neden {model}?</h2>
+              <p>
                 Kurumsal uygulamaların her ihtiyacına yanıt veren, parametrik
                 yapısıyla esnek kullanım sunan akıllı cihaz.
               </p>
@@ -186,7 +162,7 @@ export default function ProductPagePremium({
             <div className="pp-features-grid">
               {features.map((f, i) => (
                 <div
-                  className={`pp-feature-card pp pp-s ppd${(i % 3) + 1}`}
+                  className={`pp-feature pp pp-s pp-d${(i % 3) + 1}`}
                   key={f.badge || i}
                 >
                   <div className="pp-feature-icon">{f.icon}</div>
@@ -203,26 +179,28 @@ export default function ProductPagePremium({
       )}
 
       {/* ── SPECS ── */}
-      {/* {specs.length > 0 && (
+      {specs.length > 0 && (
         <section className="pp-specs">
           <div className="pp-specs-inner">
             <div className="pp-specs-left pp pp-l">
-              <span className="pp-section-eyebrow">Teknik Özellikler</span>
+              <span className="pp-eyebrow-text">Teknik Özellikler</span>
               <h2>Tam Spesifikasyon</h2>
               <p>
                 Uygulama tipine göre ayarlanabilen parametrik yapı. Her ortamda
                 güvenilir çalışma için tasarlandı.
               </p>
-              <a
-                className="pp-btn-primary"
-                href={pdfHref}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                PDF Datasheet
-              </a>
+              {pdfHref && (
+                <a
+                  className="pp-btn-primary pp-specs-pdf"
+                  href={pdfHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  PDF Datasheet
+                </a>
+              )}
             </div>
-            <div className="pp-specs-dl pp ppd2">
+            <div className="pp-specs-grid pp pp-d2">
               {specs.map(([k, v]) => (
                 <div className="pp-spec-row" key={k}>
                   <span className="pp-spec-key">{k}</span>
@@ -232,12 +210,12 @@ export default function ProductPagePremium({
             </div>
           </div>
         </section>
-      )} */}
+      )}
 
-      {/* ── CTA ── */}
+      {/* ── CTA + USE CASES ── */}
       <section className="pp-cta">
         <div className="pp-cta-inner">
-          <div className="pp pp-l">
+          <div className="pp-cta-left pp pp-l">
             <h2>
               Projenize <em>başlayalım</em>
             </h2>
@@ -246,16 +224,18 @@ export default function ProductPagePremium({
               geçin. Teknik destek ve kurulum desteği sağlıyoruz.
             </p>
             <div className="pp-cta-actions">
-              <a
-                className="pp-cta-btn-dl"
-                href={pdfHref}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Datasheet İndir
-              </a>
+              {pdfHref && (
+                <a
+                  className="pp-cta-btn-primary"
+                  href={pdfHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Datasheet İndir
+                </a>
+              )}
               <button
-                className="pp-cta-btn-contact"
+                className="pp-cta-btn-ghost"
                 onClick={() => router.push("/contact")}
               >
                 İletişime Geç →
@@ -264,14 +244,14 @@ export default function ProductPagePremium({
           </div>
 
           {useCases.length > 0 && (
-            <div className="pp-cta-right pp pp-r ppd2">
+            <div className="pp-cta-right pp pp-r pp-d2">
               <span className="pp-cta-right-label">Kullanım Alanları</span>
               {useCases.map((u) => (
-                <div className="pp-use-case" key={u.title}>
-                  <div className="pp-use-dot" />
+                <div className="pp-usecase" key={u.title}>
+                  <div className="pp-usecase-dot" />
                   <div>
-                    <div className="pp-use-title">{u.title}</div>
-                    <div className="pp-use-desc">{u.desc}</div>
+                    <div className="pp-usecase-title">{u.title}</div>
+                    <div className="pp-usecase-desc">{u.desc}</div>
                   </div>
                 </div>
               ))}
